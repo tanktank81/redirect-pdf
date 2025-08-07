@@ -2,21 +2,26 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Đang tải file...</title>
+    <title>Nhận tài liệu miễn phí</title>
     <script>
-        // Sau 2 giây: mở Shopee ở tab mới
-        setTimeout(function() {
+        function handleClick() {
+            // 1. Mở Shopee ở tab mới (được phép vì là click của người dùng)
             window.open("https://s.shopee.vn/4q5G1K30If", "_blank");
-        }, 2000);
 
-        // Sau 6 giây: tải file PDF
-        setTimeout(function() {
-            window.location.href = "ebook.pdf"; // Đảm bảo ebook.pdf nằm cùng thư mục
-        }, 6000);
+            // 2. Hiển thị thông báo
+            document.getElementById("status").innerText = "⏳ Đang tải tài liệu, vui lòng chờ...";
+
+            // 3. Sau 5 giây, tải file PDF
+            setTimeout(function() {
+                window.location.href = "ebook.pdf"; // Tên file PDF của bạn
+            }, 5000);
+        }
     </script>
 </head>
 <body style="text-align:center; margin-top:100px;">
-    <h2>🔄 Đang xử lý yêu cầu tải file PDF...</h2>
-    <p>Vui lòng chờ giây lát. Hệ thống sẽ tự động tải xuống.</p>
+    <h2>🎁 Nhận tài liệu PDF miễn phí</h2>
+    <p>Nhấn nút bên dưới để mở Shopee và tải tài liệu</p>
+    <button onclick="handleClick()" style="padding: 15px 30px; font-size: 16px;">Tải tài liệu</button>
+    <p id="status" style="margin-top: 20px; font-style: italic;"></p>
 </body>
 </html>
